@@ -1,0 +1,48 @@
+.title {
+
+  &_first {
+    font-weight: 900;
+
+    @media (--to-tablet) {
+      font-size: 3.75em; /* 60px */
+    }
+
+    @media (--from-tablet) {
+      font-size: 5.2em; /* 104px */
+    }
+  }
+
+  &_second {
+    font-weight: 600;
+
+    @media (--to-tablet) {
+      font-size: 2em; /* 32px */
+    }
+
+    @media (--from-tablet) {
+      font-size: 2.4em; /* 48px */
+    }
+  }
+
+  &_third {
+    @media (--to-tablet) {
+      font-size: 1.5em; /* 24px */
+    }
+
+    @media (--from-tablet) {
+      font-size: 1.6em; /* 32px */
+    }
+  }
+
+  &_fourth {
+    font-weight: 600;
+
+    @media (--to-tablet) {
+      font-size: 1.25em; /* 20px */
+    }
+
+    @media (--from-tablet) {
+      font-size: 1.2em; /* 24px */
+    }
+  }
+}

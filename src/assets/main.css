@@ -1,7 +1,10 @@
+@import "variables.css";
 @import "media.css";
 
 @import "./base.css";
 @import "@/common.blocks/page/page.css";
+@import "@/common.blocks/title/title.css";
+@import "@/common.blocks/link/link.css";
 
 #app {
   max-width: 1280px;
