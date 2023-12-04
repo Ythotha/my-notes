@@ -30,12 +30,45 @@
         class="field__textarea"
       ></textarea>
     </div>
+    <div class="field__bottom">
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+        <div
+          v-if="hasError"
+          class="field__messages"
+        >
+          <span
+            v-for="(err, i) in errorItems"
+            :key="i"
+            class="field__message"
+          >
+            {{ err }}
+          </span>
+        </div>
+        <div
+          v-else
+          class="the-input__message"
+          key="details"
+        >
+          {{ hint }}
+        </div>
+      </transition>
+      <span
+        v-if="maxLength"
+        class="field__counter"
+      >
+        {{ innerValue.length }}
+        /
+        {{ maxLength }}
+      </span>
+    </div>
   </label>
 </template>
 
 <script>
-// import { minLength } from 'vuelidate/lib/validators';
-import { minLength } from 'vuelidate/dist/validators.min.js';
+// import { minLength } from 'vuelidate/dist/validators.min.js';
 
 import IconEye from '@/components/icons/IconEye.vue';
 
@@ -45,7 +78,10 @@ export default {
   },
 
   props: {
-    value: String,
+    value: {
+      type: String,
+      default: '',
+    },
     label: String,
     placeholder: String,
     type: {
@@ -54,6 +90,12 @@ export default {
     },
     textarea: {
       type: Boolean,
+    },
+    errorMessages: {
+      type: [Array, String],
+    },
+    maxLength: {
+      type: [String, Number],
     },
   },
 
@@ -76,6 +118,22 @@ export default {
 
       return 'password';
     },
+
+    errorItems() {
+      if (typeof this.errorMessages === 'string') {
+        return [this.errorMessages];
+      }
+
+      if (Array.isArray(this.errorMessages)) {
+        return this.errorMessages;
+      }
+
+      return [];
+    },
+
+    hasError() {
+      return this.errorItems.length > 0;
+    },
   },
 
   methods: {
@@ -94,6 +152,11 @@ export default {
 
   font-size: 1.8rem;
 
+  &__label,
+  &__bottom {
+    padding-inline: 2.4rem;
+  }
+
   &__label {
     color: var(--color-gray);
   }
@@ -107,11 +170,24 @@ export default {
   &__textarea {
     box-sizing: border-box;
     width: 100%;
+    border: none;
     border-radius: 3.6rem;
     padding-inline: var(--field-input-padding-x, 2.8rem);
 
     font-family: inherit;
     font-size: inherit;
+  }
+
+  &__input::placeholder,
+  &__textarea::placeholder {
+    color: var(--gray);
+  }
+
+  &__input:focus,
+  &__textarea:focus {
+    box-shadow: inset var(--color-green-light) 0 0 0 0.2rem;
+
+    outline: none;
   }
 
   &__input {
@@ -151,6 +227,27 @@ export default {
     max-width: 100%;
     min-height: var(--textarea-min-height);
     padding-block: 1.6rem;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-block-start: 0.8rem;
+  }
+
+  &__messages {
+    display: grid;
+    gap: 0.8rem;
+
+    color: var(--color-error);
+  }
+
+  &__counter {
+    flex-shrink: 0;
+
+    color: var(--color-gray);
   }
 }
 </style>

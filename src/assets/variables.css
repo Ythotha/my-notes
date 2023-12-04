@@ -12,6 +12,8 @@
   --color-text: var(--color-white);
   --color-background: var(--color-dark);
 
+  --color-error: #FF7461;
+
   --field-input-padding-x: 2.8rem;
 
   @media (--to-desktop) {
