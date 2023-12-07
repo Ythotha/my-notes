@@ -2,6 +2,7 @@
 
   &_first {
     font-weight: 900;
+    line-height: 1;
 
     @media (--to-tablet) {
       font-size: 3.75em; /* 60px */

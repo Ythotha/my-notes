@@ -1,9 +1,9 @@
 <template>
   <div
     id="app"
-    class="app"
+    class="app container"
   >
-    <the-header class="container" />
+    <the-header />
 
     <router-view />
   </div>
@@ -47,5 +47,8 @@ export default {
 
 <style lang="postcss">
 .app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
 }
 </style>

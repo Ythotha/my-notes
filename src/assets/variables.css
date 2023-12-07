@@ -31,6 +31,7 @@
     --form-indent: 2.8rem;
     --form-field-indent: 1.6rem;
     --form-text-font-size: 1.4rem;
+    --home-text-font-size: 2.4rem;
   }
 
   @media (--from-tablet) {
@@ -39,6 +40,11 @@
     --form-indent: 4rem;
     --form-field-indent: 2.4rem;
     --form-text-font-size: 1.8rem;
+    --home-text-font-size: 3.2rem;
+  }
+
+  @media (--to-laptop) {
+    --home-text-margin: 2rem;
   }
 
   @media (--from-tablet) and (--to-laptop) {
@@ -52,6 +58,7 @@
 
   @media (--from-laptop) {
     --container-padding-inline: 8rem;
+    --home-text-margin: 4rem;
   }
 
   @media (--from-laptop) and (--to-desktop) {

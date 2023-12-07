@@ -51,6 +51,7 @@ html {
 
 body {
   min-height: 100vh;
+  margin: 0;
 
   color: var(--color-text);
   font-size: 1.6rem;
@@ -69,4 +70,13 @@ body {
   @media (--from-tablet) {
     font-size: 2rem;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block: 0;
 }
