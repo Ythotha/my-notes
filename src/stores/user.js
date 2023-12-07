@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 export const userStore = defineStore({
   id: 'user',
   state: () => ({
-    authorised: false,
+    authorised: !!localStorage.getItem('token'),
     email: '',
   }),
   actions: {

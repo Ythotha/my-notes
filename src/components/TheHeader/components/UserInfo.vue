@@ -88,6 +88,7 @@ export default {
         await api.logout();
         localStorage.setItem('token', '');
         this.$reset();
+        this.$router.push({ name: 'home' });
       } catch (error) {
         console.log(error);
       }

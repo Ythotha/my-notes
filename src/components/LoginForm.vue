@@ -217,6 +217,7 @@ export default {
         this.setUserEmail(this.email);
         this.setAuthorised(true);
         this.$emit('success');
+        this.$router.push({ name: 'notes' });
       } catch (error) {
         let responseErrors;
 
