@@ -20,6 +20,7 @@
   --container-max-width: 160rem;
 
   --btn-padding-inline: calc(var(--btn-padding-block) * 2);
+  --cross-btn-size: 5.6rem;
   
   --transition-duration: 0.2s;
   

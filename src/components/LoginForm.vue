@@ -241,6 +241,15 @@ export default {
 @import '@/assets/media.css';
 
 .login-form {
+  &__title {
+    display: block;
+
+    @media (--to-tablet) {
+      padding-top: 1.8rem;
+      padding-right: var(--cross-btn-size);
+    }
+  }
+
   &__form,
   &__bottom {
     margin-block-start: var(--form-indent);
@@ -255,7 +264,7 @@ export default {
 
     @media (--to-tablet) {
       display: grid;
-      justify-content: center;
+      text-align: center;
     }
 
     @media (--from-tablet) {
@@ -265,17 +274,21 @@ export default {
     }
   }
 
+  &__submit {
+    @media (--to-tablet) {
+      width: 100%;
+    }
+
+    @media (--from-tablet) {
+      order: 1;
+    }
+  }
+
   &__text {
     display: block;
 
     color: var(--color-gray);
     font-size: var(--form-text-font-size);
-  }
-
-  &__submit {
-    @media (--from-tablet) {
-      order: 1;
-    }
   }
 
   &__message {

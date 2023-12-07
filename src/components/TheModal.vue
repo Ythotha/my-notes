@@ -12,7 +12,7 @@
         <the-button
           @click="closeModal"
           round
-          size="56"
+          size="var(--cross-btn-size)"
           class="modal__close"
         >
           <icon-cross />

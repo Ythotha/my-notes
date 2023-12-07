@@ -1,7 +1,7 @@
 <template>
   <button
     @click="$emit('click', $event)"
-    :style="size ? `--btn-size: ${size}px` : ''"
+    :style="size ? `--btn-size: ${btnSizeValue}` : ''"
     :class="{ btn_round: round, btn_dark: dark }"
     class="btn"
     :type="submit ? '' : 'button'"
@@ -19,6 +19,18 @@ export default {
     disabled: Boolean,
     submit: Boolean,
     dark: Boolean,
+  },
+
+  computed: {
+    btnSizeValue() {
+      if (!this.size) return undefined;
+
+      if (isNaN(this.size?.slice(-1))) {
+        return this.size;
+      }
+
+      return `${this.size}px`;
+    },
   },
 };
 </script>
