@@ -13,14 +13,60 @@
   --color-background: var(--color-dark);
 
   --color-error: #FF7461;
+  --color-error-bg: rgba(255, 116, 97, 0.1);
 
   --field-input-padding-x: 2.8rem;
 
+  --container-max-width: 160rem;
+
+  --btn-padding-inline: calc(var(--btn-padding-block) * 2);
+  
+  --transition-duration: 0.2s;
+  
+  @media (--to-tablet) {
+    --btn-padding-block: .9rem;
+    --container-padding-inline: 2rem;
+    --close-btn-indent: 1.2rem;
+    --modal-content-padding: 1.6rem;
+    --form-indent: 2.8rem;
+    --form-field-indent: 1.6rem;
+    --form-text-font-size: 1.4rem;
+  }
+
+  @media (--from-tablet) {
+    --btn-padding-block: 1.2rem;
+    --close-btn-indent: 2rem;
+    --form-indent: 4rem;
+    --form-field-indent: 2.4rem;
+    --form-text-font-size: 1.8rem;
+  }
+
+  @media (--from-tablet) and (--to-laptop) {
+    --container-padding-inline: 4rem;
+    --modal-width: 68.8rem;
+  }
+
+  @media (--from-tablet) and (--to-desktop) {
+    --modal-content-padding: 5.6rem;
+  }
+
+  @media (--from-laptop) {
+    --container-padding-inline: 8rem;
+  }
+
+  @media (--from-laptop) and (--to-desktop) {
+    --modal-width: 59.4rem;
+  }
+
   @media (--to-desktop) {
     --textarea-min-height: 16.8rem;
-  }
+    --header-padding-block: 2rem;
+  }  
 
   @media (--from-desktop) {
     --textarea-min-height: 24.4rem;
+    --header-padding-block: 4rem;
+    --modal-width: 78rem;
+    --modal-content-padding: 8rem;
   }
 }

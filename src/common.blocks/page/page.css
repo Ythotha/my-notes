@@ -1,8 +1,0 @@
-.page {
-  &__test {
-    @media (--from-tablet) and (--to-desktop) {
-      color: red;
-
-    }
-  }
-}

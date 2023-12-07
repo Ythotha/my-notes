@@ -12,7 +12,9 @@
         v-model="innerValue"
         :type="currentFieldType"
         :placeholder="placeholder"
-        @input="$emit('input', $event)"
+        @input="$emit('input', $event.target.value)"
+        @blur="$emit('blur', $event.target.value)"
+        @submit="$emit('submit')"
         class="field__input"
       />
       <button
@@ -47,13 +49,6 @@
             {{ err }}
           </span>
         </div>
-        <div
-          v-else
-          class="the-input__message"
-          key="details"
-        >
-          {{ hint }}
-        </div>
       </transition>
       <span
         v-if="maxLength"
@@ -68,8 +63,6 @@
 </template>
 
 <script>
-// import { minLength } from 'vuelidate/dist/validators.min.js';
-
 import IconEye from '@/components/icons/IconEye.vue';
 
 export default {
@@ -180,7 +173,7 @@ export default {
 
   &__input::placeholder,
   &__textarea::placeholder {
-    color: var(--gray);
+    color: var(--color-gray);
   }
 
   &__input:focus,

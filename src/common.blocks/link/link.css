@@ -1,5 +1,13 @@
 .link {
+  border: none;
+  padding: 0;
+
   color: var(--color-green-light);
+  font-size: inherit;
+  
+  background-color: transparent;
+
+  cursor: pointer;
 
   &:hover {
     color: var(--color-text);

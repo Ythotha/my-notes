@@ -1,92 +1,51 @@
-<script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-</script>
-
 <template>
-  <div id="app" class="page__test">
-    <header>
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/logo.svg"
-        width="125"
-        height="125"
-      />
-
-      <div class="wrapper">
-        <HelloWorld msg="You did it!" />
-
-        <nav>
-          <router-link to="/">Home</router-link>
-          <router-link to="/about">About</router-link>
-        </nav>
-      </div>
-    </header>
+  <div
+    id="app"
+    class="app"
+  >
+    <the-header class="container" />
 
     <router-view />
   </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script>
+import axios from 'axios';
+import api from '@/api/user';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+import { mapActions, mapState } from 'pinia';
+import { userStore } from '@/stores/user';
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+import TheHeader from '@/components/TheHeader/TheHeader.vue';
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+export default {
+  components: {
+    TheHeader,
+  },
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  computed: {
+    ...mapState(userStore, ['email']),
+  },
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+  async mounted() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
-nav a:first-of-type {
-  border: 0;
-}
+      const response = await api.getUserData();
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+      this.setUserEmail(response.email);
+      this.setAuthorised(true);
+    }
+  },
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+  methods: {
+    ...mapActions(userStore, ['setUserEmail', 'setAuthorised']),
+  },
+};
+</script>
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+<style lang="postcss">
+.app {
 }
 </style>

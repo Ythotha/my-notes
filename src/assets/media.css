@@ -1,5 +1,5 @@
 @custom-media --from-tablet (min-width: 768px);
-@custom-media --from-laptop (min-width: 1366);
+@custom-media --from-laptop (min-width: 1366px);
 @custom-media --from-desktop (min-width: 1440px);
 
 @custom-media --to-tablet (max-width: 767.98px);
