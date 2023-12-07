@@ -25,7 +25,6 @@
 
 .home {
   @media (--to-laptop) {
-    flex-direction: column;
     text-align: center;
   }
 
@@ -50,7 +49,7 @@
   }
 
   &__img {
-    display: block;
+    display: inline-block;
     max-width: 100%;
   }
 }
