@@ -31,6 +31,8 @@ export default {
 .dropdown {
   position: relative;
 
+  z-index: 50;
+
   &__content {
     position: absolute;
     top: 2.1rem;
@@ -39,6 +41,8 @@ export default {
     border-radius: 1.2rem;
 
     background-color: var(--color-dark-middle);
+
+    box-shadow: var(--shadow-1);
   }
 
   &__content::before {
