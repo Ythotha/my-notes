@@ -6,6 +6,7 @@
     class="btn"
     :type="submit ? '' : 'button'"
     :disabled="disabled"
+    :aria-label="ariaLabel"
   >
     <slot />
   </button>
@@ -19,6 +20,7 @@ export default {
     disabled: Boolean,
     submit: Boolean,
     dark: Boolean,
+    ariaLabel: String,
   },
 
   computed: {

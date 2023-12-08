@@ -29,6 +29,9 @@
         v-if="textarea"
         v-model="innerValue"
         :placeholder="placeholder"
+        @input="$emit('input', $event.target.value)"
+        @blur="$emit('blur', $event.target.value)"
+        @submit="$emit('submit')"
         class="field__textarea"
       ></textarea>
     </div>
@@ -238,6 +241,7 @@ export default {
   }
 
   &__counter {
+    margin-inline-start: auto;
     flex-shrink: 0;
 
     color: var(--color-gray);

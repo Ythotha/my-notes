@@ -21,6 +21,16 @@
 
   --btn-padding-inline: calc(var(--btn-padding-block) * 2);
   --cross-btn-size: 5.6rem;
+  --add-btn-indent-bottom: 4rem;
+
+  --note-border-radius: 1.2rem;
+  --note-padding-block: 2rem; 
+  --note-padding-inline: 2.8rem; 
+  --note-fold-size: 4rem;
+  --note-header-border: 0.1rem solid var(--color-green);
+
+  --shadow-1: 0px 15px 46px -10px rgba(0, 0, 0, 0.60);
+  --note-shadow: 0px 15px 15px -10px rgba(0, 0, 0, 0.40);
   
   --transition-duration: 0.2s;
   
@@ -46,6 +56,7 @@
 
   @media (--to-laptop) {
     --home-text-margin: 2rem;
+    --add-btn-indent-right: 0.8rem;
   }
 
   @media (--from-tablet) and (--to-laptop) {
@@ -64,6 +75,7 @@
 
   @media (--from-laptop) and (--to-desktop) {
     --modal-width: 59.4rem;
+    --add-btn-indent-right: 1.2rem;
   }
 
   @media (--to-desktop) {
@@ -76,5 +88,6 @@
     --header-padding-block: 4rem;
     --modal-width: 78rem;
     --modal-content-padding: 8rem;
+    --add-btn-indent-right: var(--add-btn-indent-bottom);
   }
 }
