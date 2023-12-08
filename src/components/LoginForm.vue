@@ -6,7 +6,6 @@
     </span>
     <form
       @submit="onSubmit"
-      action=""
       class="login-form__form"
     >
       <the-field
